@@ -1,0 +1,83 @@
+body{
+    background-color: #352f5b;
+}
+
+.w-30{
+    width: 25rem;
+}
+
+
+.h-30{
+    height: 2rem;
+}
+
+.h-40{
+    height: 2.5rem;
+}
+
+
+.letra{
+    color: gray;
+}
+
+.fondo{
+    background-color: #221d40;
+    border: none;
+}
+
+.fondo2{
+    background-color: #7269ad;
+    border: none;
+    color:white
+}
+
+
+h5{
+    font-family: Poppins;
+}
+
+.form-control{
+    background-color:#352f5b;
+    border: none;
+}
+
+.red{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+}
+
+.green{
+    background-color: green;
+    color: white;
+    border-radius: 10px;    
+}
+
+.white{
+    background-color: #7269ad;
+    width: 20rem;
+    border: none;
+    color:white;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    
+}
+
+.PR{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.lineamedia{
+    text-decoration: line-through;
+    background-color: #7269ad;
+    width: 20rem;
+    height: auto;
+    border: none;
+    color:white;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    
+
+}
