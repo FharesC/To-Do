@@ -18,5 +18,5 @@ Este proyecto es una simple aplicación de lista de tareas (*To-Do List*) creada
 ## 📂 Estructura del proyecto
 
 
-##Vista Previa 📷
+## Vista Previa 📷
 ![image](https://github.com/user-attachments/assets/dabb219d-ab5c-4e59-b297-2c330374301a)
