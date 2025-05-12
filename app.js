@@ -2,18 +2,21 @@
 let boton = document.querySelector("#btn")
 let ul = document.querySelector("ul")
 let enter = document.querySelector("#tarea")
-
 let a = "jajaj"
+let tareas = []
 
-const agregar = (event)=>{
-    
+let agregar = (event)=>{
+    let nuevaTarea = {
+        texto: enter.value,
+        isComplete: false
+    }
     let li = document.createElement("li")
     let div = document.createElement("div")
     let input = document.createElement("input")
-    let tarea = document.querySelector("#tarea").value
     let btn1 = document.createElement("button")
     let btn2 = document.createElement("button")
-    input.value= tarea
+    input.value= nuevaTarea.texto
+    enter.value=""
     input.setAttribute("readonly", true)
     div.classList.add("form-control")
     btn1.className ="bi bi-check-all text-light fs-3 fondo2"
@@ -25,24 +28,33 @@ const agregar = (event)=>{
     div.appendChild(btn1) 
     div.appendChild(btn2)
     ul.appendChild(li)
-
-console.log(ul);
-
-
-btn2.addEventListener ("click", () =>{
+    tareas.push(nuevaTarea)
+    console.log(nuevaTarea);
+    console.log(tareas);
+    btn2.addEventListener ("click", (event) =>{
         ul.removeChild(li)
-})
+        tareas=tareas.filter(item => item.texto != event.target.previousElementSibling.previousElementSibling.value)
+        console.log(tareas);
+        
+    })
 
-btn1.addEventListener ("click", () =>{
+btn1.addEventListener ("click", (event) =>{
 
     input.classList="lineamedia"
+    tareas=tareas.map(item =>{
+        if(item.texto == event.target.previousElementSibling.value) {
+            item.isComplete = true
+        }
+        return item
+    })
+    console.log(tareas);
 
 })}
 
 
-boton.addEventListener("click", () =>{
+boton.addEventListener("click", (event) =>{
     if (String(enter.value.trim()) == "") {
-        alert(a)
+        
     }else{
         agregar()
     }
@@ -51,11 +63,9 @@ boton.addEventListener("click", () =>{
 enter.addEventListener("keydown" ,(evento) =>{
     if (evento.key == "Enter") {
         if (String(enter.value.trim())=="") {
-            alert(a)
+            
         }else{
             agregar()
         }
-
     }
-    
 } )

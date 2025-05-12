@@ -9,27 +9,39 @@
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-        </style>
+    </style>
 </head>
 <body>
 
     <h1 class="text-light text-center mt-5">To-Do List</h1>
 
-    <input type="text" class="card w-30 h-30 text-start ps-3 mb-3 m-auto letra fondo" placeholder="Search to-do...">
-
+    <div class="m-auto">
+        <input type="text" class="card w-30 h-30 text-start ps-3 mb-3 m-auto letra fondo" placeholder="Search to-do...">
+        <select class="form-select w-30 h-30 text-start ps-3 mb-3 m-auto  letra fondo"
+            aria-label="Default select example">
+            <option selected  hidden>Open this select menu</option>
+            <option value="1">Pendientes</option>
+            <option value="2">Completados</option>
+            <option value="3">Todos</option>
+            
+        </select>
+    </div>
 
     <!-- Acá va el contenido  -->
     <ul id="todo-list" class="list-group">
-    </ul>    
-   <!-- Acá acaba el contenido-->
+    </ul>
+    <!-- Acá acaba el contenido-->
     <h3 class="text-light text-center mt-5">Add a new to-do...</h3>
     <input type="text" id="tarea" class="mt-2 card w-30 h-30 text-start ps-3 m-auto letra fondo" placeholder="Add">
 
-    <input type="button" id="btn"  value="Enviar" class="mt-4 btn btn-light d-flex justify-content-center  text-start  m-auto  ">
+    <input type="button" id="btn" value="Enviar"
+        class="mt-4 btn btn-light d-flex justify-content-center  text-start  m-auto  ">
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./app.js"></script>
 </body>
