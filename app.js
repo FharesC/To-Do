@@ -6,18 +6,36 @@ let tareas = [];
 let filtro = document.querySelector("#filter");
 let allLI = document.querySelectorAll("li");
 
+boton.addEventListener("click", (event) => {
+  if (String(enter.value.trim()) == "") {
+  } else {
+    agregar();
+  }
+});
+
+
 let agregar = (event) => {
   let nuevaTarea = {
     texto: enter.value,
     isComplete: false,
   };
 
-  let li = document.createElement("li");
+  tareas.push(nuevaTarea);
+
+  crearElementosyRenderizar(nuevaTarea.texto)
+}
+
+
+  
+
+
+  const crearElementosyRenderizar = (valor) => {
+    let li = document.createElement("li");
   let div = document.createElement("div");
   let input = document.createElement("input");
   let btn1 = document.createElement("button");
   let btn2 = document.createElement("button");
-  input.value = nuevaTarea.texto;
+  input.value = valor;
   enter.value = "";
   input.setAttribute("readonly", true);
   div.classList.add("form-control");
@@ -30,7 +48,7 @@ let agregar = (event) => {
   div.appendChild(btn1);
   div.appendChild(btn2);
   ul.appendChild(li);
-  tareas.push(nuevaTarea);
+ 
 
   btn2.addEventListener("click", (event) => {
     ul.removeChild(li);
@@ -52,23 +70,10 @@ let agregar = (event) => {
     });
     console.log(tareas);
   });
-};
 
-boton.addEventListener("click", (event) => {
-  if (String(enter.value.trim()) == "") {
-  } else {
-    agregar();
-  }
-});
 
-enter.addEventListener("keydown", (evento) => {
-  if (evento.key == "Enter") {
-    if (String(enter.value.trim()) == "") {
-    } else {
-      agregar();
-    }
   }
-});
+
 
 const filtroTareas = (value) => {
   let filtro = [];
@@ -79,8 +84,8 @@ const filtroTareas = (value) => {
   } else {
     filtro = tareas;
   }
-
   ul.innerHTML = "";
+
 
   filtro.forEach((item) => {
     let li = document.createElement("li");
@@ -98,8 +103,10 @@ const filtroTareas = (value) => {
     div.className = "PR";
     li.appendChild(div);
     div.appendChild(input);
-    div.appendChild(btn1);
-    div.appendChild(btn2);
+    if (value != "completados")  {
+      div.appendChild(btn1);
+    }
+    div.appendChild(btn2);        
     ul.appendChild(li);
 
     btn2.addEventListener("click", (event) => {
@@ -123,9 +130,19 @@ const filtroTareas = (value) => {
       console.log(tareas);
     });
   });
-};
+}
 
 filtro.addEventListener("change", (event) => {
   console.log(event.target.value);
   filtroTareas(event.target.value);
+});
+
+
+enter.addEventListener("keydown", (evento) => {
+  if (evento.key == "Enter") {
+    if (String(enter.value.trim()) == "") {
+    } else {
+      agregar();
+    }
+  }
 });
